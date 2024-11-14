@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import com.setu.f1geek.model.seedDriverStore
 
 class MainActivity : ComponentActivity() {
 
@@ -27,20 +28,21 @@ class MainActivity : ComponentActivity() {
 //        enableEdgeToEdge()
         setContent {
             F1GeekTheme {
-                DriverList()
+                val driverStore = seedDriverStore()
+                DriverList(drivers = driverStore.drivers)
             }
         }
     }
 }
 
 @Composable
-fun DriverList(modifier: Modifier = Modifier) {
+fun DriverList(drivers: List<Driver>, modifier: Modifier = Modifier) {
 
-    val drivers = listOf(
-            Driver("Roland", "Ratzenberger", "RAT", 32),
-            Driver("Jochen", "Rindt", "RIN", 22),
-            Driver("Jules", "Bianchi", "BIA", 17),
-    )
+//    val drivers = listOf(
+//            Driver("Roland", "Ratzenberger", "RAT", 32),
+//            Driver("Jochen", "Rindt", "RIN", 22),
+//            Driver("Jules", "Bianchi", "BIA", 17),
+//    )
 
     var filterText by rememberSaveable() { mutableStateOf("") }
     println("Hello, i'm rescomposing")
@@ -57,6 +59,7 @@ fun DriverList(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     F1GeekTheme {
-        DriverList()
+        val driverStore = seedDriverStore()
+        DriverList(drivers = driverStore.drivers)
     }
 }
