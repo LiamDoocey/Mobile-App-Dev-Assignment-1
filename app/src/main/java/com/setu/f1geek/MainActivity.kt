@@ -4,12 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.setu.f1geek.ui.theme.F1GeekTheme
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,6 +22,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.setu.f1geek.model.seedDriverStore
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +34,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             F1GeekTheme {
                 val driverStore = seedDriverStore()
-                DriverList(drivers = driverStore.drivers)
+
+                DriverList(
+                    drivers = driverStore.drivers, Modifier
+                        .fillMaxWidth()
+                        .padding(4.dp)
+                )
             }
         }
     }
@@ -49,8 +59,15 @@ fun DriverList(drivers: List<Driver>, modifier: Modifier = Modifier) {
 
     Column {
         TextField(value = filterText, onValueChange = { value -> filterText = value }, label = { Text("Search") })
-        drivers.filter { it.fullName.contains(filterText, true) }.forEach { driver ->
-            Text("${driver.firstName} ${driver.surName}")
+        drivers.filter { it.fullName.contains(filterText, true) }.forEachIndexed { index, driver ->
+            val backgroundColor = if (index % 2 == 0) Color.LightGray else Color.Transparent
+            Text(
+                text = driver.fullName,
+                modifier = modifier
+                    .fillMaxWidth()
+                    .background(backgroundColor)
+                    .padding(8.dp)
+            )
         }
     }
 }
