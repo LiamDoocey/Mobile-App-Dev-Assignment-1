@@ -11,13 +11,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.setu.f1geek.ui.theme.F1GeekTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.TextField
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.setu.f1geek.model.Driver
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             F1GeekTheme {
                 DriverList()
@@ -35,10 +42,13 @@ fun DriverList(modifier: Modifier = Modifier) {
             Driver("Jules", "Bianchi", "BIA", 17),
     )
 
-    Column(modifier = modifier) {
-        TextField(value = "", onValueChange = {}, label = { Text("Search") })
-        drivers.forEach { driver ->
-            Text(text = "${driver.firstName} ${driver.surName} (${driver.number})")
+    var filterText by rememberSaveable() { mutableStateOf("") }
+    println("Hello, i'm rescomposing")
+
+    Column {
+        TextField(value = filterText, onValueChange = { value -> filterText = value }, label = { Text("Search") })
+        drivers.filter { it.firstName.contains(filterText, true) }.forEach { driver ->
+            Text("${driver.firstName} ${driver.surName}")
         }
     }
 }
