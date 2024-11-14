@@ -5,4 +5,7 @@ class Driver(
     val surName: String,
     val abbreviatedName: String,
     val number: Int
-)
+) {
+    val fullName: String
+        get() = "$firstName $surName"
+}

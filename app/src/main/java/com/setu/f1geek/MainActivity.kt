@@ -49,7 +49,7 @@ fun DriverList(drivers: List<Driver>, modifier: Modifier = Modifier) {
 
     Column {
         TextField(value = filterText, onValueChange = { value -> filterText = value }, label = { Text("Search") })
-        drivers.filter { it.firstName.contains(filterText, true) }.forEach { driver ->
+        drivers.filter { it.fullName.contains(filterText, true) }.forEach { driver ->
             Text("${driver.firstName} ${driver.surName}")
         }
     }
