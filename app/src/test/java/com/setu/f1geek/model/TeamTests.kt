@@ -3,6 +3,7 @@ package com.setu.f1geek.model
 import org.junit.jupiter.api.Assertions.*
 
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class TeamTests {
 
@@ -40,5 +41,14 @@ class TeamTests {
         val team = Team("Ferrari", charles, carlos, mutableListOf())
 
         assertEquals(mutableListOf<Driver>(), team.reserveDrivers)
+    }
+
+    @Test
+    fun setPrimaryAndSecondaryDriverToSameDriver(){
+        val charles = Driver("Charles", "Leclerc", "CL", 16)
+
+        assertThrows<IllegalStateException> {
+            Team("Ferrari", charles, charles, mutableListOf())
+        }
     }
 }
