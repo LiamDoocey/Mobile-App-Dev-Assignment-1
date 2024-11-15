@@ -4,7 +4,8 @@ class Team (
     val name: String,
     val primaryDriver: Driver,
     val secondaryDriver: Driver,
-    val reserveDrivers: List<Driver>
+    val reserveDrivers: List<Driver>,
+    val logo: Int
 ) {
     init {
         if (primaryDriver.number == secondaryDriver.number) {

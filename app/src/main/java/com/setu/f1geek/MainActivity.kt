@@ -3,15 +3,19 @@ package com.setu.f1geek
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.setu.f1geek.ui.theme.F1GeekTheme
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.mutableStateOf
@@ -19,9 +23,13 @@ import com.setu.f1geek.model.Driver
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.ModifierLocalModifierNode
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.setu.f1geek.model.Team
 import com.setu.f1geek.model.seedTeamStore
 
@@ -92,7 +100,13 @@ fun DriverList(drivers: List<Driver>, onDriverClick: (Driver) -> Unit, onClickHa
         Button(onClick = { onClickHandler()}, modifier = modifier){
             Text("Back to teams")
         }
-        TextField(value = filterText, onValueChange = { value -> filterText = value }, label = { Text("Search") })
+        TextField(
+            modifier = modifier
+                .fillMaxWidth(),
+            value = filterText,
+            onValueChange = { value -> filterText = value },
+            label = { Text("Search") }
+        )
         drivers.filter { it.fullName.contains(filterText, true) }.forEachIndexed { index, driver ->
             val backgroundColor = if (index % 2 == 0) Color.LightGray else Color.Transparent
             Text(
@@ -112,17 +126,37 @@ fun TeamList(teams: List<Team>, onClickHandler: (Team) -> Unit, modifier: Modifi
     var filterText by rememberSaveable() { mutableStateOf("") }
 
     Column {
-        TextField(value = filterText, onValueChange = { value -> filterText = value }, label = { Text("Search") })
+        TextField(
+            modifier = modifier
+                .fillMaxWidth(),
+            value = filterText,
+            onValueChange = { value -> filterText = value },
+            label = { Text("Search") }
+        )
         teams.filter { it.name.contains(filterText, true) }.forEachIndexed { index, team ->
             val backgroundColor = if (index % 2 == 0) Color.LightGray else Color.Transparent
-            Text(
-                text = team.name,
+            //https://www.mal7othify.com/post/compose_lists/
+            Row(
                 modifier = modifier
                     .fillMaxWidth()
                     .background(backgroundColor)
-                    .padding(28.dp)
                     .clickable { onClickHandler(team) }
-            )
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = team.name,
+                    modifier = Modifier.weight(1f)
+                )
+                //https://developer.android.com/develop/ui/compose/resources
+                Image(
+                    painter = painterResource(team.logo),
+                    contentDescription = "Team logo",
+                    modifier = Modifier
+                        .size(64.dp)
+                )
+            }
         }
     }
 }
@@ -133,13 +167,32 @@ fun driverInfo(driver: Driver, onClickHandler: () -> Unit, modifier: Modifier = 
         Button(onClick = { onClickHandler() }) {
             Text("Back to Drivers")
         }
-        Text("Name: ${driver.fullName}")
-        Text("Abbreviated Name: ${driver.abbreviatedName}")
-        Text("Car Number: ${driver.number}")
-        Text("Age: ${driver.age}")
+        Text(
+            "${driver.fullName}",
+            modifier = modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(4.dp),
+            textDecoration =
+                            TextDecoration.Underline,
+                            fontSize = 24.sp,
+                            fontWeight = Bold
+        )
+        Text(
+            "Abbreviated Name: ${driver.abbreviatedName}",
+            modifier = modifier.padding(4.dp)
+        )
+        Text(
+            "Car Number: ${driver.number}",
+            modifier = modifier.padding(4.dp)
+        )
+        Text(
+            "Age: ${driver.age}",
+            modifier = modifier
+                .padding(4.dp)
+                .fillMaxWidth()
+        )
     }
 }
-
 //@Preview(showBackground = true)
 //@Composable
 //fun GreetingPreview() {
