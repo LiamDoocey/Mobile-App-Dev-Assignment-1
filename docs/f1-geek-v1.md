@@ -66,9 +66,12 @@ classDiagram
         +String abbreviatedName
         +Integer number
         +Integer age
+        +Integer? headshot
+        +Integer? profileImage
     }
     class Team{
         +String name
+        +Integer logo
     }
 
     Circuit "1" --> "0..*" Result: results
@@ -89,16 +92,21 @@ classDiagram
 
 ## Team list
 
-![image](https://github.com/user-attachments/assets/857a4028-8222-485a-b6bc-4ec0992e2cb6)
-
+![image](https://github.com/user-attachments/assets/f10fcae4-12b5-426d-9029-16de2041f6b5)
 
 ## Drivers List (After choosing McLaren)
 
-![image](https://github.com/user-attachments/assets/f4d02b6b-178c-42b5-8762-f67183b27a69)
+![image](https://github.com/user-attachments/assets/023c347a-acca-471e-a985-9ac32fbf3255)
 
 ## Driver Info (After choosing Lando Norris)
 
-![image](https://github.com/user-attachments/assets/e486a229-c60b-429b-9526-4ac823146f14)
+![image](https://github.com/user-attachments/assets/c41408d8-f503-4ceb-bdd2-5267ce86e2e6)
+
+## Driver Master list (Searchable)
+
+![image](https://github.com/user-attachments/assets/9b3ec4c2-b36b-4301-b329-d55c96bc9007)
+
+![image](https://github.com/user-attachments/assets/025c86da-5505-475d-844e-faa729fed15a)
 
 ## Submission details
 
