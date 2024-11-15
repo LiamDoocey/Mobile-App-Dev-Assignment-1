@@ -53,9 +53,36 @@ mindmap
 ![Figma-proto](https://github.com/user-attachments/assets/2af7f88c-4906-47d9-b43a-2c74e3a21c31)
 
 
-## Data Model - 20%
+## Data Model
 
-TODO: Add the mermaid class diagram for the extended data model here, this must be a mermaid diagram that renders in github.
+```mermaid
+classDiagram
+    Team "1" --> "1" Driver : primaryDriver
+    Team "1" --> "1" Driver : secondaryDriver
+    Team "1" --> "1..*"  Driver : reserveDrivers
+    class Driver{
+        +String surname
+        +String firstName
+        +String abbreviatedName
+        +Integer number
+    }
+    class Team{
+        +String name
+    }
+
+    Circuit "1" --> "0..*" Result: results
+    class Circuit{
+        +String name
+        +String country
+        +Float length 
+    }
+    class Result{
+        +String first
+        +String second
+        +String third
+        +Integer year
+    }
+```
 
 TODO: You must also actually implement the data model in kotlin in your F1 Geek app and include tests, see the previous page for details on the model.
 
