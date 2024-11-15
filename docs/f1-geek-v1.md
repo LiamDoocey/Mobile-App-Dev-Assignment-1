@@ -19,6 +19,7 @@ mindmap
             Record / Avg Lap Times
     Seasons
         Races
+            Live
             Media
             Results
             Upcoming
@@ -33,13 +34,24 @@ mindmap
 
 ```
 
-## User Stories - 10%
+## User Stories
 
-TODO: Add the original user stories as described in the assignment spec and add 5 more.
+- As a Formula 1 fan, I want to see a list of drivers so that I can see who is competing in the championship.
+- As a Formula 1 fan, I want to see a list of teams so that I can see who is competing in the championship.
+- As a Formula 1 fan, I want to drill down into a driver so that I can see more information about them.
+- As a Formula 1 fan, I want to drill down into a team so that I can see more information about them, including their drivers.
 
-## Design - 20%
+- As a Formula 1 expert, I want to have access to live weather updates to be able to prepare for race day appropriately.
+- As a Formula 1 expert, I want to be able to have all the latest news on teams and players so I am well informed at all times.
+- As a Formula 1 expert, I want to have access to live updates to my mobile device from ongoing races I might not be able to attend / watch, so I can keep up to date.
 
-TODO: Add a screenshot of your Figma design for the list of teams.
+- As a new Formula 1 fan, I want to be able to see team history with past results etc. so I can gain a better understanding of the teams I am watching
+- As a new Formula 1 fan, I want to have access to information telling where I can watch the races and at what time. to make it easier to get in on.
+
+## Design
+
+![Figma-proto](https://github.com/user-attachments/assets/2af7f88c-4906-47d9-b43a-2c74e3a21c31)
+
 
 ## Data Model - 20%
 
