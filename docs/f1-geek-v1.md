@@ -1,8 +1,37 @@
 # F1 Geek Design - Version 1
 
-## Mindmap - 10%
+## Mindmap
+```mermaid
+mindmap
+  root((F1 Geek))
+    Drivers
+        Information
+        Personal Records
+        Personal Statistics
+    Teams
+        History
+        Current Members
+    Race Tracks
+        Information
+            Track Length
+            Location
+        Statistics
+            Record / Avg Lap Times
+    Seasons
+        Races
+            Media
+            Results
+            Upcoming
+    Personalisation
+        Follow Drivers
+        Display favourite Team
+        Fantasy League
+    News Feed
+        Team News
+        Driver News
+        Weather updates
 
-TODO: Add your mind map as described in the assignment spec, this must be a mermaid diagram that renders in github.
+```
 
 ## User Stories - 10%
 
