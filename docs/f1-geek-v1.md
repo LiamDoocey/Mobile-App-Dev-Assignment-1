@@ -110,9 +110,8 @@ classDiagram
 
 ## Submission details
 
-* My UNLISTED youtube video (app and test walkthrough): TODO: Add your youtube link here
-* My github repository (this MUST be your github classroom repo): TODO: Add your github repo link here
-* Have you uploaded a zip of your repo to moodle? (yes/no): TODO: Answer here
+* My UNLISTED youtube video (app and test walkthrough): [Demo](https://www.youtube.com/watch?v=KB-bwKN5iMU)
+* My github repository (this MUST be your github classroom repo): [This Repo!](https://github.com/LiamDoocey/Mobile-App-Dev-Assignment-1)
 
 
 
