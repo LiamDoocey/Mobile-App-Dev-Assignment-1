@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
 
                 else if (currentScreen === "driverInfo") {
                     selectedDriver?.let { driver ->
-                        driverInfo(
+                        DriverInfo(
                             driver,
                             onClickHandler = { currentScreen = "Drivers" }
                         )
@@ -109,14 +109,26 @@ fun DriverList(drivers: List<Driver>, onDriverClick: (Driver) -> Unit, onClickHa
         )
         drivers.filter { it.fullName.contains(filterText, true) }.forEachIndexed { index, driver ->
             val backgroundColor = if (index % 2 == 0) Color.LightGray else Color.Transparent
-            Text(
-                text = driver.fullName,
+            Row(
                 modifier = modifier
                     .fillMaxWidth()
                     .background(backgroundColor)
-                    .padding(28.dp)
                     .clickable { onDriverClick(driver) }
-            )
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = driver.fullName,
+                    modifier = Modifier.weight(1f)
+                )
+                Image(
+                    painter = painterResource(driver.headshot ?: R.drawable.default_avatar),
+                    contentDescription = "Driver headshot",
+                    modifier = Modifier
+                        .size(64.dp)
+                )
+            }
         }
     }
 }
@@ -162,13 +174,13 @@ fun TeamList(teams: List<Team>, onClickHandler: (Team) -> Unit, modifier: Modifi
 }
 
 @Composable
-fun driverInfo(driver: Driver, onClickHandler: () -> Unit, modifier: Modifier = Modifier) {
+fun DriverInfo(driver: Driver, onClickHandler: () -> Unit, modifier: Modifier = Modifier) {
     Column {
         Button(onClick = { onClickHandler() }) {
             Text("Back to Drivers")
         }
         Text(
-            "${driver.fullName}",
+            driver.fullName,
             modifier = modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(4.dp),
@@ -176,6 +188,13 @@ fun driverInfo(driver: Driver, onClickHandler: () -> Unit, modifier: Modifier = 
                             TextDecoration.Underline,
                             fontSize = 24.sp,
                             fontWeight = Bold
+        )
+        Image(
+            painter = painterResource(driver.profileImage ?: R.drawable.default_avatar),
+            contentDescription = "Driver profile image",
+            modifier = modifier
+                .size(320.dp)
+                .align(Alignment.CenterHorizontally)
         )
         Text(
             "Abbreviated Name: ${driver.abbreviatedName}",

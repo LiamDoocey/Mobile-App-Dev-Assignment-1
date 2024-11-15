@@ -6,6 +6,8 @@ class Driver(
     val abbreviatedName: String,
     val number: Int,
     val age: Int,
+    val headshot: Int? = null,
+    val profileImage: Int? = null
 ) {
     val fullName: String
         get() = "$firstName $surName"
