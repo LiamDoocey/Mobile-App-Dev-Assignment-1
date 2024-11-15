@@ -65,6 +65,7 @@ classDiagram
         +String firstName
         +String abbreviatedName
         +Integer number
+        +Integer age
     }
     class Team{
         +String name
