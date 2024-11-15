@@ -100,6 +100,13 @@ classDiagram
 
 ![image](https://github.com/user-attachments/assets/e486a229-c60b-429b-9526-4ac823146f14)
 
+## Submission details
+
+* My UNLISTED youtube video (app and test walkthrough): TODO: Add your youtube link here
+* My github repository (this MUST be your github classroom repo): TODO: Add your github repo link here
+* Have you uploaded a zip of your repo to moodle? (yes/no): TODO: Answer here
+
+
 
 
 
