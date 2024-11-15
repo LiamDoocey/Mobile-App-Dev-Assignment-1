@@ -57,6 +57,11 @@ class MainActivity : ComponentActivity() {
                     currentScreen = "driverInfo"
                 }
 
+                val onAllDriverClick = {drivers: List<Driver> ->
+                    println("All drivers")
+                    currentScreen = "allDrivers"
+                }
+
                 println("Current screen: $currentScreen")
 
                 if (currentScreen === "Drivers"){
@@ -80,10 +85,22 @@ class MainActivity : ComponentActivity() {
                     }
                 }
 
+                else if (currentScreen === "allDrivers"){
+                    DriverListAll(
+                        drivers = teamStore.teams.flatMap { team ->
+                            listOf(team.primaryDriver, team.secondaryDriver) + team.reserveDrivers
+                        },
+                        onClickHandler = { currentScreen = "home" },
+                        onDriverClick = onDriverClick,
+                        modifier = Modifier
+                    )
+                }
+
                 else {
                     TeamList(
                         teamStore.teams,
-                        onTeamClick
+                        onTeamClick,
+                        onAllDriverClick,
                     )
                 }
             }
@@ -134,7 +151,7 @@ fun DriverList(drivers: List<Driver>, onDriverClick: (Driver) -> Unit, onClickHa
 }
 
 @Composable
-fun TeamList(teams: List<Team>, onClickHandler: (Team) -> Unit, modifier: Modifier = Modifier) {
+fun TeamList(teams: List<Team>, onClickHandler: (Team) -> Unit, onAllDriverClick: (List<Driver>) -> Unit, modifier: Modifier = Modifier) {
     var filterText by rememberSaveable() { mutableStateOf("") }
 
     Column {
@@ -153,7 +170,7 @@ fun TeamList(teams: List<Team>, onClickHandler: (Team) -> Unit, modifier: Modifi
                     .fillMaxWidth()
                     .background(backgroundColor)
                     .clickable { onClickHandler(team) }
-                    .padding(16.dp),
+                    .padding(6.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -170,9 +187,58 @@ fun TeamList(teams: List<Team>, onClickHandler: (Team) -> Unit, modifier: Modifi
                 )
             }
         }
+        //Add all drivers from each team to a list to display all
+        //https://www.baeldung.com/kotlin/map-vs-flatmap
+        Button(onClick = {onAllDriverClick(
+            teams.flatMap { team ->
+                listOf(team.primaryDriver, team.secondaryDriver) + team.reserveDrivers
+            }
+        )}) {
+            Text("View All Drivers")
+        }
     }
 }
 
+@Composable
+fun DriverListAll(drivers: List<Driver>, onClickHandler: () -> Unit, onDriverClick: (Driver) -> Unit, modifier: Modifier) {
+    var filterText by rememberSaveable() { mutableStateOf("") }
+
+    Column{
+        Button(onClick = {onClickHandler()}) {
+            Text("Back to Teams")
+        }
+        TextField(
+            modifier = modifier
+                .fillMaxWidth(),
+            value = filterText,
+            onValueChange = { value -> filterText = value },
+            label = { Text("Search") }
+        )
+        drivers.filter { it.fullName.contains(filterText, true) }.forEachIndexed { index, driver ->
+            val backgroundColor = if (index % 2 == 0) Color.LightGray else Color.Transparent
+            Row(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .background(backgroundColor)
+                    .clickable { onDriverClick(driver) }
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = driver.fullName,
+                    modifier = Modifier.weight(1f)
+                )
+                Image(
+                    painter = painterResource(driver.headshot ?: R.drawable.default_avatar),
+                    contentDescription = "Driver headshot",
+                    modifier = Modifier
+                        .size(64.dp)
+                )
+            }
+        }
+    }
+}
 @Composable
 fun DriverInfo(driver: Driver, onClickHandler: () -> Unit, modifier: Modifier = Modifier) {
     Column {
