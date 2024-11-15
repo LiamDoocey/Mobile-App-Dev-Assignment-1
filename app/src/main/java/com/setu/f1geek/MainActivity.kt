@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             F1GeekTheme {
                 val teamStore = seedTeamStore()
-                var currentScreen by remember { mutableStateOf("home") }
+                var currentScreen by rememberSaveable() { mutableStateOf("home") }
                 val onTeamClick = { team: Team ->
                     println("Selected team: ${team.name}")
                     selectedTeam = team
