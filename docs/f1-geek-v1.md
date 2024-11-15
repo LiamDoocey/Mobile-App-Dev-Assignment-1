@@ -85,6 +85,21 @@ classDiagram
     }
 ```
 
-## User Interface - 40%
+## User Interface
 
-TODO: Add screenshots of your driver list, team list, team detail screens and driver detail screens
+## Team list
+
+![image](https://github.com/user-attachments/assets/857a4028-8222-485a-b6bc-4ec0992e2cb6)
+
+
+## Drivers List (After choosing McLaren)
+
+![image](https://github.com/user-attachments/assets/f4d02b6b-178c-42b5-8762-f67183b27a69)
+
+## Driver Info (After choosing Lando Norris)
+
+![image](https://github.com/user-attachments/assets/e486a229-c60b-429b-9526-4ac823146f14)
+
+
+
+
