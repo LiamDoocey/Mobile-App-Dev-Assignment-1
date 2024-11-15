@@ -84,8 +84,6 @@ classDiagram
     }
 ```
 
-TODO: You must also actually implement the data model in kotlin in your F1 Geek app and include tests, see the previous page for details on the model.
-
 ## User Interface - 40%
 
 TODO: Add screenshots of your driver list, team list, team detail screens and driver detail screens
