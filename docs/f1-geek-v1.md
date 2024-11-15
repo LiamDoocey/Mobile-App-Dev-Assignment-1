@@ -66,9 +66,12 @@ classDiagram
         +String abbreviatedName
         +Integer number
         +Integer age
+        +Integer? headshot
+        +Integer? profileImage
     }
     class Team{
         +String name
+        +Integer logo
     }
 
     Circuit "1" --> "0..*" Result: results
