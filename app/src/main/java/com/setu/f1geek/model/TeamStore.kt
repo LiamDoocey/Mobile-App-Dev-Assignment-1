@@ -6,84 +6,84 @@ fun seedTeamStore(): TeamStore{
     val teams = mutableListOf(
         Team(
             "McLaren",
-            Driver("Lando", "Norris", "NOR", 4),
-            Driver("Oscar", "Piastri", "PIA", 81),
+            Driver("Lando", "Norris", "NOR", 4, 25),
+            Driver("Oscar", "Piastri", "PIA", 81, 23),
             listOf(
-                Driver("Ryo", "Hirakawa", "HIR", 8),
-                Driver("Pato", "O'Ward", "OWA", 5)
+                Driver("Ryo", "Hirakawa", "HIR", 8, 30),
+                Driver("Pato", "O'Ward", "OWA", 5, 25)
             )
         ),
         Team(
             "Ferrai",
-            Driver("Charles", "Leclerc", "LEC", 16),
-            Driver("Carlos", "Sainz", "SAI", 55),
+            Driver("Charles", "Leclerc", "LEC", 16, 27),
+            Driver("Carlos", "Sainz", "SAI", 55, 30),
             listOf(
-                Driver("Olivier", "Bearman", "BEA", 50),
-                Driver("Antonio", "Giovinazzi", "GIO", 36),
-                Driver("Robert", "Shwartzman", "SHW", 83)
+                Driver("Olivier", "Bearman", "BEA", 50, 19),
+                Driver("Antonio", "Giovinazzi", "GIO", 36,30),
+                Driver("Robert", "Shwartzman", "SHW", 83, 25)
             )
         ),
         Team(
             "Red Bull Racing",
-            Driver("Max", "Verstappen", "VER", 1),
-            Driver("Sergio", "Perez", "PER", 11),
+            Driver("Max", "Verstappen", "VER", 1, 27),
+            Driver("Sergio", "Perez", "PER", 11, 34),
             listOf(
-                Driver("Liam", "Lawson", "LAW", 30),
+                Driver("Liam", "Lawson", "LAW", 30, 22),
             )
         ),
         Team(
             "Mercedes",
-            Driver("Lewis", "Hamilton", "HAM", 44),
-            Driver("George", "Russell", "RUS", 63),
+            Driver("Lewis", "Hamilton", "HAM", 44, 39),
+            Driver("George", "Russell", "RUS", 63, 26),
             listOf(
-                Driver("Mick", "Schumacher", "MSC", 47),
-                Driver("Frederik", "Vesti", "VES", 42)
+                Driver("Mick", "Schumacher", "MSC", 47, 25),
+                Driver("Frederik", "Vesti", "VES", 42, 22)
             )
         ),
         Team(
             "Astorn Martin",
-            Driver("Fernando", "Alonso", "ALO", 14),
-            Driver("Lance", "Stroll", "STR", 18),
+            Driver("Fernando", "Alonso", "ALO", 14, 43),
+            Driver("Lance", "Stroll", "STR", 18, 26),
             listOf(
-                Driver("Felipe", "Drugovich", "DRU", 34),
+                Driver("Felipe", "Drugovich", "DRU", 34, 24),
             )
         ),
         Team(
             "Apline",
-            Driver("Pierre", "Gasly", "GAS", 10),
-            Driver("Estebar", "Ocon", "OCO", 31),
+            Driver("Pierre", "Gasly", "GAS", 10, 28),
+            Driver("Estebar", "Ocon", "OCO", 31, 28),
             listOf(
-                Driver("Jack", "Doohan", "DOO", 12),
+                Driver("Jack", "Doohan", "DOO", 12, 21),
             )
         ),
         Team(
             "Haas",
-            Driver("Nico", "Hulkenberg", "HUL", 27),
-            Driver("Kevin", "Magnussen", "MAG", 20),
+            Driver("Nico", "Hulkenberg", "HUL", 27, 37),
+            Driver("Kevin", "Magnussen", "MAG", 20, 32),
             listOf(
-                Driver("Pietro", "Fittipaldi", "FIT", 51),
-                Driver("Olivier", "Bearman", "BEA", 50)
+                Driver("Pietro", "Fittipaldi", "FIT", 51, 28),
+                Driver("Olivier", "Bearman", "BEA", 50, 19)
             )
         ),
         Team(
             "RB",
-            Driver("Yuki", "Tsunoda", "TSU", 22),
-            Driver("Liam", "Lawson", "LAW", 30),
+            Driver("Yuki", "Tsunoda", "TSU", 22, 24),
+            Driver("Liam", "Lawson", "LAW", 30, 22),
             listOf()
         ),
         Team(
             "Williams",
-            Driver("Alexander", "Albon", "ALB", 23),
-            Driver("Franco", "Colapinto", "COL", 43),
+            Driver("Alexander", "Albon", "ALB", 23, 28),
+            Driver("Franco", "Colapinto", "COL", 43, 21),
             listOf()
         ),
         Team(
             "Kick Sauber",
-            Driver("Valtteri", "Bottas", "BOT", 77),
-            Driver("Zhou", "Guanyu", "ZHO", 24),
+            Driver("Valtteri", "Bottas", "BOT", 77, 35),
+            Driver("Zhou", "Guanyu", "ZHO", 24, 25),
             listOf(
-                Driver("Theo", "Pourchaire", "POU", 33),
-                Driver("Zane", "Maloney", "MAL", 35)
+                Driver("Theo", "Pourchaire", "POU", 33, 21),
+                Driver("Zane", "Maloney", "MAL", 35, 21)
             )
         )
     )
