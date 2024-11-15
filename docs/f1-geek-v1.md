@@ -50,8 +50,7 @@ mindmap
 
 ## Design
 
-![Figma-proto](https://github.com/user-attachments/assets/2af7f88c-4906-47d9-b43a-2c74e3a21c31)
-
+![Figma-proto.png](images/Figma-proto.png)
 
 ## Data Model
 
@@ -92,21 +91,21 @@ classDiagram
 
 ## Team list
 
-![image](https://github.com/user-attachments/assets/f10fcae4-12b5-426d-9029-16de2041f6b5)
+![TeamList-Screen.png](images/TeamList-Screen.png)
 
 ## Drivers List (After choosing McLaren)
 
-![image](https://github.com/user-attachments/assets/023c347a-acca-471e-a985-9ac32fbf3255)
+![DriverList-Screen.png](images/DriverList-Screen.png)
 
 ## Driver Info (After choosing Lando Norris)
 
-![image](https://github.com/user-attachments/assets/c41408d8-f503-4ceb-bdd2-5267ce86e2e6)
+![DriverInfo-Screen.png](images/DriverInfo-Screen.png)
 
 ## Driver Master list (Searchable)
 
-![image](https://github.com/user-attachments/assets/9b3ec4c2-b36b-4301-b329-d55c96bc9007)
+![MasterDriverList-Screen.png](images/MasterDriverList-Screen.png)
 
-![image](https://github.com/user-attachments/assets/025c86da-5505-475d-844e-faa729fed15a)
+![MasterDriverList_Filtered-Screen.png](images/MasterDriverList_Filtered-Screen.png)
 
 ## Submission details
 
